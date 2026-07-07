@@ -1,0 +1,94 @@
+/*
+  Getamazednow AI Design System — CSS Custom Properties v1.0
+  Generated from design-tokens.json. Drop into web/app builds.
+  Fonts: import Inter, Poppins, JetBrains Mono (e.g. via Google Fonts or self-hosted).
+  Sister system: Getamazednow (Photography) uses the "gan-" prefix — Ink, Stone,
+  neutrals, semantics, spacing, radius, elevation and fonts are shared 1:1 with that
+  system (parent-brand DNA). Only "signal*" accent tokens are AI-specific.
+*/
+
+:root {
+  /* Brand colors */
+  --gai-ink: #2A363B;              /* shared with Photography (--gan-ink) */
+  --gai-signal: #5FA8CC;
+  --gai-signal-deep: #2E7DA6;      /* accessible on white, 4.57:1 AA */
+  --gai-signal-core: #8FC3DE;      /* decorative core-node highlight */
+  --gai-stone: #A8A17B;            /* shared with Photography (--gan-stone) */
+  --gai-black: #000000;
+  --gai-white: #FFFFFF;
+
+  /* Neutrals — identical to Photography */
+  --gai-neutral-50: #F6F7F7;
+  --gai-neutral-100: #EBEDEE;
+  --gai-neutral-200: #D5DADB;
+  --gai-neutral-300: #B7BEC2;
+  --gai-neutral-400: #909CA1;
+  --gai-neutral-500: #6B797E;
+  --gai-neutral-600: #545E63;
+  --gai-neutral-700: #3F474A;
+  --gai-neutral-800: #2C3234;
+  --gai-neutral-900: #1C1F21;
+
+  /* Semantic — identical to Photography */
+  --gai-success: #2C6644;
+  --gai-success-on-ink: #6FBF8B;
+  --gai-warning: #A85A16;
+  --gai-warning-on-ink: #E3A253;
+  --gai-error: #A02E2E;
+  --gai-error-on-ink: #E08585;
+  --gai-info: #355F6D;
+  --gai-info-on-ink: #7FB3C2;
+
+  /* Typography — identical pairing to Photography */
+  --gai-font-display: "Poppins", "Montserrat", "Segoe UI", sans-serif;
+  --gai-font-body: "Inter", "Segoe UI", Roboto, sans-serif;
+  --gai-font-mono: "JetBrains Mono", "Courier New", monospace;
+
+  --gai-text-xs: 12px;
+  --gai-text-sm: 14px;
+  --gai-text-base: 16px;
+  --gai-text-lg: 18px;
+  --gai-text-xl: 20px;
+  --gai-text-2xl: 24px;
+  --gai-text-3xl: 30px;
+  --gai-text-4xl: 36px;
+  --gai-text-5xl: 48px;
+  --gai-text-6xl: 60px;
+
+  --gai-leading-tight: 1.15;
+  --gai-leading-normal: 1.5;
+  --gai-leading-relaxed: 1.7;
+
+  /* Spacing (4px base unit) */
+  --gai-space-1: 4px;
+  --gai-space-2: 8px;
+  --gai-space-3: 12px;
+  --gai-space-4: 16px;
+  --gai-space-5: 24px;
+  --gai-space-6: 32px;
+  --gai-space-7: 48px;
+  --gai-space-8: 64px;
+  --gai-space-9: 96px;
+  --gai-space-10: 128px;
+
+  /* Radius */
+  --gai-radius-sm: 4px;
+  --gai-radius-md: 8px;
+  --gai-radius-lg: 16px;
+  --gai-radius-pill: 999px;
+
+  /* Elevation */
+  --gai-shadow-sm: 0 1px 2px rgba(0,0,0,0.08);
+  --gai-shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+  --gai-shadow-lg: 0 12px 32px rgba(0,0,0,0.18);
+}
+
+/* Dark-mode / Ink-surface convenience class */
+.gai-surface-ink {
+  background: var(--gai-ink);
+  color: var(--gai-white);
+}
+.gai-surface-light {
+  background: var(--gai-white);
+  color: var(--gai-neutral-900);
+}

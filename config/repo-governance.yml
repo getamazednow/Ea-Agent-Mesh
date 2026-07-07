@@ -1,0 +1,98 @@
+# EA Agent Mesh — repo governance configuration
+# Consumed by scripts/bootstrap-repo.sh (post-push, run once/periodically by an admin)
+# and scripts/pre-pr-check.sh (pre-PR, run locally by contributors).
+# Edit this file under CODEOWNERS review for /design-system and /docs — it is itself a governed artefact.
+
+repo:
+  owner: "<github-org-or-user>"       # e.g. duane-gomes or your GitHub org
+  name: "ea-agent-mesh"
+  default_branch: "main"
+  visibility: "private"                # private | public | internal
+
+# Teams referenced by CODEOWNERS. bootstrap-repo.sh verifies each exists in the org
+# (or in your personal account's collaborator list) and warns — it does not silently
+# create teams with real people, since membership is a people decision, not a script decision.
+teams:
+  - slug: ea-practice-lead
+    description: "Owns docs/, GOVERNANCE.md, and default fallback review"
+  - slug: solution-architects
+    description: "Weekly cadence — landscape-maps, architecture-assessments, architecture-patterns"
+  - slug: engineering-managers
+    description: "Daily cadence — asset-health escalation"
+  - slug: product-owners
+    description: "Monthly cadence — asset-portfolios, asset-roadmaps"
+  - slug: heads-of
+    description: "Monthly/Quarterly — capability-maps investment sign-off"
+  - slug: general-managers
+    description: "Quarterly cadence — capability-maps, architecture-principles, strategy-transformations"
+  - slug: risk-committee
+    description: "Quarterly cadence — architecture-principles, governance-exceptions, policy-as-code"
+  - slug: cxo
+    description: "Yearly cadence — ea-blueprint, strategy-whitepapers, strategy-transformations"
+  - slug: auditors
+    description: "On-demand — governance-exceptions read/audit"
+  - slug: engineering
+    description: "mesh/ implementation"
+  - slug: platform-team
+    description: "infra/ deployment"
+  - slug: brand-design-owner
+    description: "design-system/ brand and templates"
+
+# Branch protection applied to default_branch by bootstrap-repo.sh.
+# GitHub branch protection is branch-level, not path-level — per-cadence path enforcement
+# comes from CODEOWNERS (required reviewers) layered on top of this.
+branch_protection:
+  required_status_checks:
+    strict: true
+    contexts:
+      - "CI"
+      - "Daily Gate — policy-as-code"
+      - "Provenance check"
+  required_pull_request_reviews:
+    require_code_owner_reviews: true
+    required_approving_review_count: 1
+    dismiss_stale_reviews: true
+  enforce_admins: false
+  required_linear_history: true
+  allow_force_pushes: false
+  allow_deletions: false
+
+# Labels created/updated by bootstrap-repo.sh
+labels:
+  - name: governance-exception
+    color: "B60205"
+    description: "Policy-as-code gate override, logged for audit"
+  - name: principles
+    color: "5319E7"
+    description: "Architecture principle change request"
+  - name: quarterly-review
+    color: "0E8A16"
+    description: "Requires Architecture Board / Risk Committee review"
+  - name: cadence:daily
+    color: "C2E0C6"
+  - name: cadence:weekly
+    color: "BFD4F2"
+  - name: cadence:monthly
+    color: "FBCA04"
+  - name: cadence:quarterly
+    color: "D93F0B"
+  - name: cadence:yearly
+    color: "5319E7"
+
+# Release tag convention for the point-in-time state presented at each governance checkpoint
+release_tags:
+  quarterly_prefix: "q-realign"   # e.g. q-realign-2026-q3
+  yearly_prefix: "y-reset"        # e.g. y-reset-2026
+
+# Consumed by scripts/pre-pr-check.sh
+pre_pr_checks:
+  artefact_path_prefix: "artefacts/"
+  require_provenance: true
+  # Markers the script scans for in commit messages (git log origin/<default_branch>..HEAD)
+  # since a PR description doesn't exist yet at pre-push time.
+  provenance_markers:
+    - "Data source:"
+    - "Policy version:"
+    - "Prior decision:"
+  run_tests: true
+  test_command: "npm test --silent"   # override per-language; script skips if not found

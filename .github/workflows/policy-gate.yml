@@ -1,0 +1,9 @@
+name: Daily Gate — policy-as-code
+on: [pull_request]
+jobs:
+  gate-agent:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Gate Agent policy checks
+        run: echo "placeholder — wire up mesh/policy-as-code rules here"

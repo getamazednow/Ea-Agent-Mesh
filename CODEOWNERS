@@ -1,0 +1,27 @@
+# Default
+*                                   @ea-practice-lead
+
+# Docs / thought leadership
+/docs/                              @ea-practice-lead
+
+# Artefacts — reviewed by the human accountable for that cadence's decision
+/artefacts/asset-health/            @engineering-managers
+/artefacts/landscape-maps/          @solution-architects
+/artefacts/architecture-assessments/ @solution-architects
+/artefacts/asset-portfolios/        @product-owners
+/artefacts/asset-roadmaps/          @product-owners
+/artefacts/architecture-patterns/   @solution-architects
+/artefacts/capability-maps/         @heads-of @general-managers
+/artefacts/architecture-principles/ @general-managers @risk-committee
+/artefacts/strategy-transformations/ @general-managers @cxo
+/artefacts/ea-blueprint/            @cxo
+/artefacts/strategy-whitepapers/    @cxo
+/artefacts/governance-exceptions/   @auditors @risk-committee
+
+# Mesh / engineering
+/mesh/                               @engineering
+/mesh/policy-as-code/                @engineering @risk-committee
+/infra/                              @platform-team
+
+# Design system / brand
+/design-system/                      @brand-design-owner @ea-practice-lead

@@ -1,0 +1,41 @@
+<svg viewBox="0 0 440 400" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>Getamazednow AI — full color lockup</title>
+<desc>Circular Ink badge containing the Tensor Node Lattice mark, with the GETAMAZEDNOW AI wordmark, the tagline Practical AI. Possible Futures., and the A Getamazednow Company byline.</desc>
+
+<circle cx="220" cy="150" r="90" fill="#2A363B"/>
+
+<!-- outer hexagon edges (far) -->
+<line x1="220" y1="108" x2="178" y2="129" stroke="#5FA8CC" stroke-width="1.6" opacity="0.5"/>
+<line x1="220" y1="108" x2="262" y2="129" stroke="#5FA8CC" stroke-width="1.6" opacity="0.5"/>
+<line x1="178" y1="129" x2="178" y2="171" stroke="#5FA8CC" stroke-width="1.6" opacity="0.5"/>
+<line x1="262" y1="129" x2="262" y2="171" stroke="#5FA8CC" stroke-width="1.6" opacity="0.5"/>
+<line x1="178" y1="171" x2="220" y2="192" stroke="#5FA8CC" stroke-width="1.6" opacity="0.5"/>
+<line x1="262" y1="171" x2="220" y2="192" stroke="#5FA8CC" stroke-width="1.6" opacity="0.5"/>
+
+<!-- inner edges (near, converge at front node) -->
+<line x1="178" y1="129" x2="220" y2="150" stroke="#5FA8CC" stroke-width="2.2" opacity="0.85"/>
+<line x1="262" y1="129" x2="220" y2="150" stroke="#5FA8CC" stroke-width="2.2" opacity="0.85"/>
+<line x1="220" y1="150" x2="220" y2="192" stroke="#5FA8CC" stroke-width="2.2" opacity="0.85"/>
+
+<!-- core spokes -->
+<line x1="220" y1="171" x2="220" y2="108" stroke="#5FA8CC" stroke-width="1.1" opacity="0.35"/>
+<line x1="220" y1="171" x2="178" y2="129" stroke="#5FA8CC" stroke-width="1.1" opacity="0.35"/>
+<line x1="220" y1="171" x2="262" y2="129" stroke="#5FA8CC" stroke-width="1.1" opacity="0.35"/>
+<line x1="220" y1="171" x2="178" y2="171" stroke="#5FA8CC" stroke-width="1.1" opacity="0.35"/>
+<line x1="220" y1="171" x2="262" y2="171" stroke="#5FA8CC" stroke-width="1.1" opacity="0.35"/>
+<line x1="220" y1="171" x2="220" y2="192" stroke="#5FA8CC" stroke-width="1.1" opacity="0.35"/>
+
+<!-- nodes -->
+<circle cx="220" cy="108" r="5" fill="#5FA8CC" opacity="0.4"/>
+<circle cx="178" cy="129" r="6" fill="#5FA8CC" opacity="0.75"/>
+<circle cx="262" cy="129" r="6" fill="#5FA8CC" opacity="0.75"/>
+<circle cx="178" cy="171" r="6" fill="#5FA8CC" opacity="0.75"/>
+<circle cx="262" cy="171" r="6" fill="#5FA8CC" opacity="0.75"/>
+<circle cx="220" cy="192" r="7" fill="#5FA8CC" opacity="0.85"/>
+<circle cx="220" cy="150" r="7" fill="#5FA8CC" opacity="0.95"/>
+<circle cx="220" cy="171" r="9" fill="#8FC3DE"/>
+
+<text x="220" y="280" text-anchor="middle" font-size="26" font-weight="800" fill="#2A363B" font-family="Poppins, Arial, Helvetica, sans-serif">GETAMAZEDNOW AI</text>
+<text x="220" y="308" text-anchor="middle" font-size="14" font-weight="600" fill="#2E7DA6" font-family="Poppins, Arial, Helvetica, sans-serif" letter-spacing="0.5">PRACTICAL AI. POSSIBLE FUTURES.</text>
+<text x="220" y="338" text-anchor="middle" font-size="11" fill="#A8A17B" font-family="Inter, Arial, Helvetica, sans-serif" letter-spacing="1.5">A GETAMAZEDNOW COMPANY</text>
+</svg>

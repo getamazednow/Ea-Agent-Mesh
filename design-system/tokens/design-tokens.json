@@ -1,0 +1,80 @@
+{
+  "$schema": "Getamazednow AI Design System – Design Tokens v1.0",
+  "brand": {
+    "name": "Getamazednow AI",
+    "parentCompany": "Getamazednow",
+    "parentByline": "A Getamazednow Company",
+    "tagline": "Practical AI. Possible Futures.",
+    "domains": ["getamazednow.ai"],
+    "sisterBrand": "Getamazednow (Photography) — getamazednow.com / getamazednow.com.au",
+    "mark": "Tensor Node Lattice — an isometric 3D cube built from 8 interconnected dot nodes (7 cube vertices + 1 brighter core hub), in a circular Ink badge lockup"
+  },
+  "color": {
+    "brand": {
+      "ink": { "value": "#2A363B", "on": "#FFFFFF", "usage": "primary dark background, badge fill, header/footer, dark-mode surface", "note": "Shared with Getamazednow Photography — parent-brand DNA color" },
+      "signal": { "value": "#5FA8CC", "on": "#2A363B", "usage": "primary accent, decorative, node/edge color on Ink surfaces, large text/icons (4.71:1 AA on Ink)" },
+      "signalDeep": { "value": "#2E7DA6", "on": "#FFFFFF", "usage": "accessible signal-family text/icons on light surfaces (4.57:1 AA)" },
+      "signalCore": { "value": "#8FC3DE", "usage": "core-node highlight, hover glow, gradient end-stop — decorative only" },
+      "stone": { "value": "#A8A17B", "on": "#2A363B", "usage": "secondary accent, byline text ('A Getamazednow Company'), muted labels, borders", "note": "Shared with Getamazednow Photography — parent-brand DNA color" },
+      "black": { "value": "#000000", "on": "#FFFFFF" },
+      "white": { "value": "#FFFFFF", "on": "#2A363B" }
+    },
+    "neutral": {
+      "50": "#F6F7F7", "100": "#EBEDEE", "200": "#D5DADB", "300": "#B7BEC2", "400": "#909CA1",
+      "500": "#6B797E", "600": "#545E63", "700": "#3F474A", "800": "#2C3234", "900": "#1C1F21",
+      "note": "Identical ramp to Getamazednow Photography — shared neutral infrastructure off the Ink hue"
+    },
+    "semantic": {
+      "success":      { "value": "#2C6644", "on": "#FFFFFF", "lightOnInk": "#6FBF8B" },
+      "warning":      { "value": "#A85A16", "on": "#FFFFFF", "lightOnInk": "#E3A253" },
+      "error":        { "value": "#A02E2E", "on": "#FFFFFF", "lightOnInk": "#E08585" },
+      "info":         { "value": "#355F6D", "on": "#FFFFFF", "lightOnInk": "#7FB3C2" },
+      "note": "Identical to Getamazednow Photography — one accessibility bar across both brands"
+    },
+    "contrastNotes": {
+      "whiteOnInk": "12.43:1 (AAA)",
+      "signalOnInk": "4.71:1 (AA — accent text/icons on Ink)",
+      "signalDeepOnWhite": "4.57:1 (AA — accent text on white)",
+      "stoneOnInk": "4.76:1 (AA, shared with Photography)",
+      "signalOnWhite": "2.64:1 (FAIL – decorative/large only, never body text)",
+      "stoneOnWhite": "2.61:1 (FAIL – decorative/large only, never body text, shared with Photography)"
+    }
+  },
+  "typography": {
+    "logotypeFonts": {
+      "note": "No proprietary logotype font — the wordmark is set directly in Poppins ExtraBold. Unlike the Photography mark, there is no logo-only font dependency and no dark-background restriction."
+    },
+    "recommendedSystemFonts": {
+      "display": { "family": "Poppins", "fallback": "Montserrat, 'Segoe UI', sans-serif", "weights": [700, 800], "usage": "H1–H2, slide titles, hero headings, wordmark lockup" },
+      "heading": { "family": "Poppins", "fallback": "Montserrat, 'Segoe UI', sans-serif", "weights": [500, 600], "usage": "H3–H6, card titles, nav" },
+      "body":    { "family": "Inter", "fallback": "'Segoe UI', Roboto, sans-serif", "weights": [400, 500], "usage": "body copy, tables, UI labels" },
+      "mono":    { "family": "JetBrains Mono", "fallback": "'Courier New', monospace", "weights": [400, 500], "usage": "code, tokens, agent/CLI surfaces" },
+      "note": "Identical pairing to Getamazednow Photography — shared typographic DNA across both brands"
+    },
+    "scale": {
+      "xs": "12px", "sm": "14px", "base": "16px", "lg": "18px", "xl": "20px",
+      "2xl": "24px", "3xl": "30px", "4xl": "36px", "5xl": "48px", "6xl": "60px"
+    },
+    "lineHeight": { "tight": 1.15, "normal": 1.5, "relaxed": 1.7 }
+  },
+  "spacing": {
+    "0": "0px", "1": "4px", "2": "8px", "3": "12px", "4": "16px", "5": "24px",
+    "6": "32px", "7": "48px", "8": "64px", "9": "96px", "10": "128px"
+  },
+  "radius": {
+    "sm": "4px", "md": "8px", "lg": "16px", "pill": "999px", "circle": "50%"
+  },
+  "elevation": {
+    "sm": "0 1px 2px rgba(0,0,0,0.08)",
+    "md": "0 4px 12px rgba(0,0,0,0.12)",
+    "lg": "0 12px 32px rgba(0,0,0,0.18)"
+  },
+  "logo": {
+    "clearSpace": "1x the diameter of the badge circle on all sides, minimum",
+    "minSizeDigital": "24px height (icon-only badge), 140px width (full wordmark lockup)",
+    "minSizePrint": "15mm width",
+    "variants": ["Color, on Ink badge (primary)", "Icon-only (no wordmark)", "Monochrome white (for dark/photo backgrounds)", "Monochrome Ink (for light backgrounds)", "Favicon (simplified 5-node version)"],
+    "favicon": { "browser": "32x32", "iPhone": "180x180", "android": "196x196" },
+    "constructionNote": "8 nodes (7 cube vertices + 1 brighter core hub), 15 edges (9 cube edges + 6 core spokes). Node opacity/size graduates by depth: farthest node smallest/dimmest, core hub largest/brightest."
+  }
+}
