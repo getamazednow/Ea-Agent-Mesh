@@ -4,10 +4,10 @@
 # Edit this file under CODEOWNERS review for /design-system and /docs — it is itself a governed artefact.
 
 repo:
-  owner: "<github-org-or-user>"       # e.g. duane-gomes or your GitHub org
+  owner: "getamazednow"       # e.g. duane-gomes or your GitHub org
   name: "ea-agent-mesh"
   default_branch: "main"
-  visibility: "private"                # private | public | internal
+  visibility: "public"                # private | public | internal
 
 # Teams referenced by CODEOWNERS. bootstrap-repo.sh verifies each exists in the org
 # (or in your personal account's collaborator list) and warns — it does not silently
