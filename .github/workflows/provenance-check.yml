@@ -1,0 +1,8 @@
+name: Provenance check
+on: [pull_request]
+jobs:
+  check-provenance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify PR description carries data source / policy version / prior decision
+        run: echo "placeholder — fail PR if artefacts/** changed without provenance fields filled"
