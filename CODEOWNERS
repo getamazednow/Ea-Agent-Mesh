@@ -24,4 +24,7 @@
 /infra/                              @platform-team
 
 # Design system / brand
-/design-system/                      @brand-design-owner @ea-practice-lead
+# Brand design system is not held in this repo (public repo; vendored + gitignored).
+# Published brand assets only:
+/assets/                             @brand-design-owner @ea-practice-lead
+/Design-System-Localisation.md        @brand-design-owner @ea-practice-lead

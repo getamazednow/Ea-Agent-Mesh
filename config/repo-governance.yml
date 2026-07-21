@@ -1,11 +1,12 @@
 # EA Agent Mesh — repo governance configuration
 # Consumed by scripts/bootstrap-repo.sh (post-push, run once/periodically by an admin)
 # and scripts/pre-pr-check.sh (pre-PR, run locally by contributors).
-# Edit this file under CODEOWNERS review for /design-system and /docs — it is itself a governed artefact.
+# Edit this file under CODEOWNERS review for /docs and /assets — it is itself a governed artefact.
+# The brand design system is NOT held in this repo (public); it is vendored locally and gitignored.
 
 repo:
   owner: "getamazednow"       # e.g. duane-gomes or your GitHub org
-  name: "ea-agent-mesh"
+  name: "Ea-Agent-Mesh"          # renamed on GitHub; keep in sync or bootstrap-repo.sh targets a redirect
   default_branch: "main"
   visibility: "public"                # private | public | internal
 
@@ -36,7 +37,7 @@ teams:
   - slug: platform-team
     description: "infra/ deployment"
   - slug: brand-design-owner
-    description: "design-system/ brand and templates"
+    description: "published brand assets in assets/; design system itself lives in its own repo"
 
 # Branch protection applied to default_branch by bootstrap-repo.sh.
 # GitHub branch protection is branch-level, not path-level — per-cadence path enforcement

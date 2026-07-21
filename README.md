@@ -16,7 +16,9 @@ and `/docs/adr` for the architecture decisions behind this repo's structure.
 | `mesh/` | Orchestrator + 13 agents + policy-as-code + connectors | Engineering |
 | `cadence/` | Scheduling/trigger config for the 5 loops | Orchestrator owner |
 | `stakeholder-views/` | Per-role dashboard/digest configs | Platform team |
-| `design-system/` | Getamazednow AI brand assets, templates, and design tokens shared by docs and stakeholder-views | Brand/design owner |
+| `assets/` | Logo and favicon files served by the published site | Brand/design owner |
+| _(external)_ `Getamazednow AI Design System v1.2/` | Brand tokens, templates and logo files. **Vendored locally, deliberately not committed** — this repo is public and the design system is not published with it. Obtain it from the design-system master repo and place it at the project root before producing artefacts. See `Design-System-Localisation.md`. | Brand/design owner |
+| `Design-System-Localisation.md` | Project-specific localisation of the design system (artefact names, version/status, colour remap) | Brand/design owner |
 | `infra/` | Deployment IaC for the mesh | Platform team |
 | `tests/` | Unit/integration tests for agents and policy gates | Engineering |
 

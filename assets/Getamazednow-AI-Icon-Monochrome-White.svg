@@ -1,0 +1,31 @@
+<svg viewBox="0 0 440 300" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>Getamazednow AI — monochrome white</title>
+<desc>Transparent background, all-white version of the Tensor Node Lattice mark for use on dark or photographic backgrounds.</desc>
+
+<line x1="220" y1="108" x2="178" y2="129" stroke="#FFFFFF" stroke-width="1.6" opacity="0.5"/>
+<line x1="220" y1="108" x2="262" y2="129" stroke="#FFFFFF" stroke-width="1.6" opacity="0.5"/>
+<line x1="178" y1="129" x2="178" y2="171" stroke="#FFFFFF" stroke-width="1.6" opacity="0.5"/>
+<line x1="262" y1="129" x2="262" y2="171" stroke="#FFFFFF" stroke-width="1.6" opacity="0.5"/>
+<line x1="178" y1="171" x2="220" y2="192" stroke="#FFFFFF" stroke-width="1.6" opacity="0.5"/>
+<line x1="262" y1="171" x2="220" y2="192" stroke="#FFFFFF" stroke-width="1.6" opacity="0.5"/>
+
+<line x1="178" y1="129" x2="220" y2="150" stroke="#FFFFFF" stroke-width="2.2" opacity="0.85"/>
+<line x1="262" y1="129" x2="220" y2="150" stroke="#FFFFFF" stroke-width="2.2" opacity="0.85"/>
+<line x1="220" y1="150" x2="220" y2="192" stroke="#FFFFFF" stroke-width="2.2" opacity="0.85"/>
+
+<line x1="220" y1="171" x2="220" y2="108" stroke="#FFFFFF" stroke-width="1.1" opacity="0.35"/>
+<line x1="220" y1="171" x2="178" y2="129" stroke="#FFFFFF" stroke-width="1.1" opacity="0.35"/>
+<line x1="220" y1="171" x2="262" y2="129" stroke="#FFFFFF" stroke-width="1.1" opacity="0.35"/>
+<line x1="220" y1="171" x2="178" y2="171" stroke="#FFFFFF" stroke-width="1.1" opacity="0.35"/>
+<line x1="220" y1="171" x2="262" y2="171" stroke="#FFFFFF" stroke-width="1.1" opacity="0.35"/>
+<line x1="220" y1="171" x2="220" y2="192" stroke="#FFFFFF" stroke-width="1.1" opacity="0.35"/>
+
+<circle cx="220" cy="108" r="5" fill="#FFFFFF" opacity="0.4"/>
+<circle cx="178" cy="129" r="6" fill="#FFFFFF" opacity="0.75"/>
+<circle cx="262" cy="129" r="6" fill="#FFFFFF" opacity="0.75"/>
+<circle cx="178" cy="171" r="6" fill="#FFFFFF" opacity="0.75"/>
+<circle cx="262" cy="171" r="6" fill="#FFFFFF" opacity="0.75"/>
+<circle cx="220" cy="192" r="7" fill="#FFFFFF" opacity="0.85"/>
+<circle cx="220" cy="150" r="7" fill="#FFFFFF" opacity="0.95"/>
+<circle cx="220" cy="171" r="9" fill="#FFFFFF"/>
+</svg>

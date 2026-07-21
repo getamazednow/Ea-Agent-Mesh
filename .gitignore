@@ -2,3 +2,8 @@ __pycache__/
 *.pyc
 .DS_Store
 node_modules/
+
+# Brand design system is vendored from its own master repo — do NOT commit here.
+# Source of truth: the Getamazednow AI Design System repo. Re-sync, never edit in place.
+# See Design-System-Localisation.md for the localisation this project applies.
+Getamazednow AI Design System */
