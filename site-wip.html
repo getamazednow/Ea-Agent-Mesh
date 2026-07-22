@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- WORK IN PROGRESS — not for public serving. Redirects to the front door.
+       To preview locally, comment out the meta refresh + redirect script below. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta http-equiv="refresh" content="0; url=/" />
+  <script>if(location.hostname!=="localhost"&&location.hostname!=="127.0.0.1"){location.replace("/");}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Assure Architect — a mesh of specialised agents running Enterprise Architecture at five cadences (Daily, Weekly, Monthly, Quarterly, Yearly). Twelve core artefacts, thirteen agents, one continuous operating rhythm.">
+<title>Assure Architect — Getamazednow AI</title>
+<link rel="canonical" href="https://mesh.getamazednow.ai/">
+<link rel="icon" type="image/svg+xml" href="./assets/Getamazednow-AI-Favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/Getamazednow-AI-Favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/Getamazednow-AI-Favicon-180.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap');
+
+  :root{
+    /* Getamazednow AI Design System v1.2 */
+    --bg:#1C1F21;            /* neutral-900 — deep background */
+    --panel:#2A363B;         /* Ink — primary card/panel surface */
+    --panel-2:#2C3234;       /* neutral-800 — secondary panel */
+    --line: rgba(255,255,255,0.09);
+    --ink:#FFFFFF;           /* white — primary text on dark surfaces */
+    --muted:#B7BEC2;         /* neutral-300 — secondary text on dark */
+
+    --signal:#5FA8CC;        /* primary accent */
+    --signal-core:#8FC3DE;   /* decorative core-node highlight */
+    --stone:#A8A17B;         /* secondary accent */
+
+    --daily:#7FB3C2;         /* info, light-on-ink */
+    --weekly:#6FBF8B;        /* success, light-on-ink */
+    --monthly:#E3A253;       /* warning, light-on-ink */
+    --quarterly:#E08585;     /* error, light-on-ink */
+    --yearly:#A8A17B;        /* stone */
+    --gold: var(--signal);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;}
+  ::selection{ background: var(--signal); color:#1C1F21; }
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 40px;}
+
+  h1,h2,h3{font-family:'Poppins',sans-serif; font-weight:600; letter-spacing:-0.01em; margin:0;}
+  .brandbar{ display:flex; align-items:center; gap:10px; padding-top:32px; }
+  .brandbar img{ height:26px; width:26px; display:block; }
+  .brandbar .wordmark{ font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; letter-spacing:0.02em; color:var(--ink); }
+  .brandbar .byline{ font-family:'Inter',sans-serif; font-size:11px; color:var(--stone); letter-spacing:0.02em; }
+
+  /* ===== Getamazednow AI — unified brand masthead (shared across getamazednow.ai properties) ===== */
+  .topbar{
+    --gai-ink:#2A363B; --gai-signal:#5FA8CC; --gai-signal-core:#8FC3DE; --gai-stone:#A8A17B;
+    --gai-neutral-800:#2C3234; --gai-neutral-700:#3F474A; --gai-neutral-50:#F6F7F7; --gai-neutral-300:#B7BEC2;
+    --gai-success-on-ink:#6FBF8B; --gai-warning-on-ink:#E3A253; --gai-radius-pill:999px;
+    --gai-font-display:"Poppins","Segoe UI",sans-serif; --gai-font-body:"Inter","Segoe UI",sans-serif;
+    --accent:var(--gai-signal); --bg-panel-2:var(--gai-neutral-800); --border:var(--gai-neutral-700);
+    --text:var(--gai-neutral-50); --text-dim:var(--gai-neutral-300); --stone:var(--gai-stone);
+    --green:var(--gai-success-on-ink); --amber:var(--gai-warning-on-ink);
+    display:flex; justify-content:space-between; align-items:center; padding:14px 24px;
+    border-bottom:2px solid var(--accent); background:var(--gai-ink); font-family:var(--gai-font-body);
+  }
+  .topbar-left{ display:flex; align-items:center; gap:14px; }
+  .topbar .brand-logo{ height:64px; width:64px; display:block; flex:0 0 auto; }
+  .topbar .brand-title{ font-family:var(--gai-font-display); font-weight:800; font-size:17px; letter-spacing:0.2px; color:var(--text); line-height:1.2; }
+  .topbar .brand-title .brand-name{ color:var(--accent); }
+  .topbar .brand-sub{ color:var(--text-dim); font-size:12.5px; margin-top:2px; }
+  .topbar .brand-byline{ color:var(--stone); font-size:11px; letter-spacing:0.6px; text-transform:uppercase; margin-top:2px; }
+  .topbar-right{ display:flex; gap:8px; align-items:center; }
+  .topbar .pill{ border:1px solid var(--border); background:var(--bg-panel-2); color:var(--text-dim); padding:5px 10px; border-radius:var(--gai-radius-pill); font-size:11.5px; font-weight:600; letter-spacing:0.3px; white-space:nowrap; }
+  .topbar .pill-live{ color:var(--gai-ink); background:var(--green); border-color:var(--green); }
+  @media (max-width:640px){
+    .topbar{ padding:12px 16px; }
+    .topbar .brand-logo{ height:48px; width:48px; }
+    .topbar .brand-sub{ display:none; }
+    .topbar-right{ display:none; }
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--signal); margin-bottom:14px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--signal);display:inline-block;}
+
+  /* HERO */
+  .hero{ padding:88px 0 60px; position:relative; overflow:hidden;
+    background: radial-gradient(ellipse 900px 500px at 78% -10%, rgba(45,212,191,0.16), transparent 60%),
+                radial-gradient(ellipse 700px 500px at 10% 10%, rgba(176,140,232,0.10), transparent 60%);
+  }
+  .hero-grid{ display:grid; grid-template-columns: 1.05fr 0.95fr; gap:40px; align-items:center; }
+  .hero h1{ font-size:46px; line-height:1.08; color:var(--ink);}
+  .hero h1 em{ font-style:normal; color:var(--signal); font-weight:700;}
+  .hero p.lead{ font-size:17px; line-height:1.6; color:var(--muted); max-width:480px; margin-top:20px;}
+  .hero-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-top:28px;}
+  .tag{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.04em; color:var(--muted);
+    border:1px solid var(--line); padding:6px 12px; border-radius:100px;}
+
+  /* ORBIT DIAGRAM */
+  .orbit-box{ position:relative; display:flex; align-items:center; justify-content:center;}
+  #orbitSvg{ width:100%; height:auto; max-width:520px; }
+  .ring-label{ font-family:'JetBrains Mono',monospace; font-size:9.5px; fill:var(--muted); letter-spacing:0.06em;}
+  .core-label{ font-family:'Poppins',sans-serif; font-size:15px; fill:var(--ink); font-weight:600;}
+  .core-sub{ font-family:'JetBrains Mono',monospace; font-size:8.5px; fill:var(--muted); letter-spacing:0.08em;}
+  .node{ cursor:default; }
+  .node circle{ stroke:#1C1F21; stroke-width:2px; }
+  .node text{ font-family:'Inter',sans-serif; font-size:8.2px; fill:var(--ink); font-weight:600; }
+  .node-tip{ font-family:'JetBrains Mono',monospace; font-size:7.6px; fill:var(--muted); }
+
+  /* SECTION SHELL */
+  section{ padding:70px 0; border-top:1px solid var(--line); }
+  .section-head{ display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:36px; gap:24px;}
+  .section-head h2{ font-size:30px; color:var(--ink); max-width:640px;}
+  .section-head p{ color:var(--muted); font-size:14px; max-width:320px; line-height:1.55; margin:0;}
+
+  /* CADENCE STRIP */
+  .cadence-strip{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-bottom:8px;}
+  .cad-card{ background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 18px; position:relative;}
+  .cad-dot{ width:9px;height:9px;border-radius:50%; margin-bottom:14px;}
+  .cad-name{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:6px;}
+  .cad-verb{ font-family:'Poppins',sans-serif; font-size:22px; font-weight:600; margin-bottom:10px;}
+  .cad-desc{ font-size:12.5px; color:var(--muted); line-height:1.5;}
+
+  /* MATRIX */
+  .matrix-scroll{ overflow-x:auto; border:1px solid var(--line); border-radius:14px; }
+  table.matrix{ width:100%; border-collapse:collapse; font-size:13px; min-width:820px;}
+  table.matrix th{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--muted); text-align:center; padding:16px 10px; background:var(--panel-2); font-weight:500;}
+  table.matrix th:first-child{ text-align:left; padding-left:20px;}
+  table.matrix td{ text-align:center; padding:13px 10px; border-top:1px solid var(--line); }
+  table.matrix td.label{ text-align:left; padding-left:20px; color:var(--ink); font-weight:500; white-space:nowrap;}
+  table.matrix td.num{ font-family:'JetBrains Mono',monospace; color:var(--muted); padding-right:14px; width:28px;}
+  .pip{ width:12px; height:12px; border-radius:4px; margin:0 auto; }
+
+  /* AGENTS */
+  .agent-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+  .agent-card{ background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px; }
+  .agent-glyph{ width:34px; height:34px; border-radius:9px; display:flex; align-items:center; justify-content:center;
+    font-family:'JetBrains Mono',monospace; font-weight:600; font-size:13px; color:#1C1F21; margin-bottom:14px;}
+  .agent-name{ font-weight:600; font-size:14.5px; margin-bottom:6px;}
+  .agent-fn{ font-size:12px; color:var(--muted); line-height:1.5;}
+  .agent-orch{ grid-column: span 4; background:linear-gradient(135deg, rgba(95,168,204,0.14), rgba(143,195,222,0.06));
+    border:1px solid rgba(95,168,204,0.35);}
+
+  /* STAKEHOLDER LADDER */
+  .ladder{ display:flex; flex-direction:column; gap:0; }
+  .ladder-row{ display:grid; grid-template-columns: 200px 90px 1fr; gap:20px; align-items:center;
+    padding:18px 0; border-top:1px solid var(--line);}
+  .ladder-row:first-child{ border-top:none; }
+  .ladder-role{ font-weight:600; font-size:14.5px;}
+  .ladder-cad{ font-family:'JetBrains Mono',monospace; font-size:10px; padding:5px 10px; border-radius:100px; text-align:center; letter-spacing:0.04em;}
+  .ladder-desc{ font-size:13px; color:var(--muted); line-height:1.5;}
+
+  /* RISK REWARD */
+  .rr-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .rr-card{ background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 24px;}
+  .rr-card h3{ font-size:14px; font-family:'JetBrains Mono',monospace; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:14px;}
+  .rr-card.reward h3{ color:var(--weekly); }
+  .rr-card.risk h3{ color:var(--quarterly); }
+  .rr-item{ font-size:13px; color:var(--muted); padding:9px 0; border-top:1px solid var(--line); line-height:1.5;}
+  .rr-item:first-of-type{ border-top:none; }
+  .rr-item b{ color:var(--ink); font-weight:600;}
+
+  footer{ padding:32px 0 60px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;}
+  footer .fbrand{ display:flex; align-items:center; gap:8px; }
+  footer .fbrand img{ height:16px; width:16px; }
+  footer p{ color:var(--muted); font-size:12px; font-family:'JetBrains Mono',monospace; margin:0;}
+  footer .byline{ color:var(--stone); font-size:11px; font-family:'Inter',sans-serif; }
+
+  @media (max-width:900px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .cadence-strip{ grid-template-columns:repeat(2,1fr);}
+    .agent-grid{ grid-template-columns:repeat(2,1fr);}
+    .agent-orch{ grid-column: span 2;}
+    .ladder-row{ grid-template-columns: 1fr; gap:8px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <!-- WORK IN PROGRESS — not for public serving. Redirects to the front door.
+       To preview locally, comment out the meta refresh + redirect script below. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta http-equiv="refresh" content="0; url=/" />
+  <script>if(location.hostname!=="localhost"&&location.hostname!=="127.0.0.1"){location.replace("/");}</script>
+  <div class="topbar-left">
+    <svg class="brand-logo" viewBox="130 60 180 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Getamazednow AI — Tensor Node Lattice mark">
+      <circle cx="220" cy="150" r="90" fill="#2A363B"/>
+      <line x1="220" y1="108" x2="178" y2="129" stroke="#5FA8CC" stroke-width="1.6" opacity="0.5"/>
+      <line x1="220" y1="108" x2="262" y2="129" stroke="#5FA8CC" stroke-width="1.6" opacity="0.5"/>
+      <line x1="178" y1="129" x2="178" y2="171" stroke="#5FA8CC" stroke-width="1.6" opacity="0.5"/>
+      <line x1="262" y1="129" x2="262" y2="171" stroke="#5FA8CC" stroke-width="1.6" opacity="0.5"/>
+      <line x1="178" y1="171" x2="220" y2="192" stroke="#5FA8CC" stroke-width="1.6" opacity="0.5"/>
+      <line x1="262" y1="171" x2="220" y2="192" stroke="#5FA8CC" stroke-width="1.6" opacity="0.5"/>
+      <line x1="178" y1="129" x2="220" y2="150" stroke="#5FA8CC" stroke-width="2.2" opacity="0.85"/>
+      <line x1="262" y1="129" x2="220" y2="150" stroke="#5FA8CC" stroke-width="2.2" opacity="0.85"/>
+      <line x1="220" y1="150" x2="220" y2="192" stroke="#5FA8CC" stroke-width="2.2" opacity="0.85"/>
+      <line x1="220" y1="171" x2="220" y2="108" stroke="#5FA8CC" stroke-width="1.1" opacity="0.35"/>
+      <line x1="220" y1="171" x2="178" y2="129" stroke="#5FA8CC" stroke-width="1.1" opacity="0.35"/>
+      <line x1="220" y1="171" x2="262" y2="129" stroke="#5FA8CC" stroke-width="1.1" opacity="0.35"/>
+      <line x1="220" y1="171" x2="178" y2="171" stroke="#5FA8CC" stroke-width="1.1" opacity="0.35"/>
+      <line x1="220" y1="171" x2="262" y2="171" stroke="#5FA8CC" stroke-width="1.1" opacity="0.35"/>
+      <line x1="220" y1="171" x2="220" y2="192" stroke="#5FA8CC" stroke-width="1.1" opacity="0.35"/>
+      <circle cx="220" cy="108" r="5" fill="#5FA8CC" opacity="0.4"/>
+      <circle cx="178" cy="129" r="6" fill="#5FA8CC" opacity="0.75"/>
+      <circle cx="262" cy="129" r="6" fill="#5FA8CC" opacity="0.75"/>
+      <circle cx="178" cy="171" r="6" fill="#5FA8CC" opacity="0.75"/>
+      <circle cx="262" cy="171" r="6" fill="#5FA8CC" opacity="0.75"/>
+      <circle cx="220" cy="192" r="7" fill="#5FA8CC" opacity="0.85"/>
+      <circle cx="220" cy="150" r="7" fill="#5FA8CC" opacity="0.95"/>
+      <circle cx="220" cy="171" r="9" fill="#8FC3DE"/>
+    </svg>
+    <div>
+      <div class="brand-title"><span class="brand-name">Getamazednow AI</span> · Assure Architect</div>
+      <div class="brand-sub">Agentic EA Operating Model · twelve artefacts · thirteen agents · five cadences</div>
+      <div class="brand-byline">A Getamazednow Company</div>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <!-- Demo status pill slot — add e.g. <span class="pill pill-live">MOCK / SYNTHETIC DATA</span> when the demo ships -->
+    <span class="pill">July 2026</span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Enterprise Architecture · Operating Model</div>
+      <h1>Five clock speeds.<br>One <em>continuous</em> practice.</h1>
+      <p class="lead">A mesh of specialised agents runs Enterprise Architecture at Daily, Weekly, Monthly, Quarterly and Yearly cadence — each loop feeding signal upward, each slower loop setting constraints back down. Twelve core artefacts, one operating rhythm.</p>
+      <div class="hero-tags">
+        <span class="tag">12 ARTEFACTS</span>
+        <span class="tag">13 AGENTS</span>
+        <span class="tag">5 CADENCES</span>
+        <span class="tag">8 STAKEHOLDER GROUPS</span>
+      </div>
+    </div>
+    <div class="orbit-box">
+      <svg id="orbitSvg" viewBox="0 0 520 520"></svg>
+    </div>
+  </div>
+</div>
+
+<section id="cadence">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The five loops — sense, review, adjust, realign, reset</h2>
+      <p>Faster loops generate the signal. Slower loops make the decisions that reset the constraints.</p>
+    </div>
+    <div class="cadence-strip" id="cadenceStrip"></div>
+  </div>
+</section>
+
+<section id="matrix">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Artefact‑to‑cadence matrix</h2>
+      <p>Where each of the twelve artefacts is created, updated, or consumed across the operating rhythm.</p>
+    </div>
+    <div class="matrix-scroll">
+      <table class="matrix" id="matrixTable"></table>
+    </div>
+  </div>
+</section>
+
+<section id="agents">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Agent roster</h2>
+      <p>Thirteen specialised agents, one orchestrator, running continuously beneath the five loops.</p>
+    </div>
+    <div class="agent-grid" id="agentGrid"></div>
+  </div>
+</section>
+
+<section id="stakeholders">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Stakeholder entry points</h2>
+      <p>Every role meets the mesh at the cadence relevant to their decisions — not a single shared dashboard.</p>
+    </div>
+    <div class="ladder" id="ladder"></div>
+  </div>
+</section>
+
+<section id="riskreward">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Risk &amp; reward of running EA this way</h2>
+      <p>The mesh trades committee latency for machine speed — that trade needs eyes open.</p>
+    </div>
+    <div class="rr-grid">
+      <div class="rr-card reward">
+        <h3>Reward</h3>
+        <div class="rr-item"><b>Continuous coverage.</b> Landscape and health state reflect reality daily, not at the last audit.</div>
+        <div class="rr-item"><b>Consistent governance.</b> The same principles are applied identically to every design, every time.</div>
+        <div class="rr-item"><b>Full provenance.</b> Every decision cites its data source, policy version and prior precedent.</div>
+        <div class="rr-item"><b>Faster cycle time.</b> Design reviews and gate checks move from board-cycle to same-day.</div>
+      </div>
+      <div class="rr-card risk">
+        <h3>Risk</h3>
+        <div class="rr-item"><b>Automation complacency.</b> Auto-approvals can be rubber-stamped rather than genuinely assessed.</div>
+        <div class="rr-item"><b>Principle ossification.</b> Rules keep being enforced after they've stopped fitting the business.</div>
+        <div class="rr-item"><b>Alert fatigue.</b> Continuous telemetry can overwhelm humans if thresholds aren't tuned per asset tier.</div>
+        <div class="rr-item"><b>False confidence.</b> Agents optimise for what's measurable and can miss political or strategic nuance.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+    <p>ASSURE ARCHITECT — AGENTIC EA OPERATING MODEL</p>
+    <div class="fbrand">
+      <img src="./assets/Getamazednow-AI-Icon-Monochrome-White.svg" alt="Getamazednow AI">
+      <span class="byline">Practical AI. Possible Futures. — getamazednow.ai</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const CAD = [
+  {key:'daily', name:'Daily', verb:'Sense', color:'var(--daily)', hex:'#7FB3C2',
+    desc:'Continuous telemetry — asset health, governance gates. No human decision unless a threshold breaches.'},
+  {key:'weekly', name:'Weekly', verb:'Review', color:'var(--weekly)', hex:'#6FBF8B',
+    desc:'Design-time governance and landscape accuracy — drift detection, scored design reviews.'},
+  {key:'monthly', name:'Monthly', verb:'Adjust', color:'var(--monthly)', hex:'#E3A253',
+    desc:'Tactical rebalancing — portfolio TIME analysis, roadmap re-baseline, pattern lifecycle.'},
+  {key:'quarterly', name:'Quarterly', verb:'Realign', color:'var(--quarterly)', hex:'#E08585',
+    desc:'Formal governance — board pack, principle review, transformation tracking.'},
+  {key:'yearly', name:'Yearly', verb:'Reset', color:'var(--yearly)', hex:'#A8A17B',
+    desc:'Strategic reset — blueprint synthesis, white papers, next-year transformation proposals.'},
+];
+
+// ---- Cadence strip
+const stripEl = document.getElementById('cadenceStrip');
+CAD.forEach(c=>{
+  stripEl.innerHTML += `<div class="cad-card">
+    <div class="cad-dot" style="background:${c.color}"></div>
+    <div class="cad-name">${c.name}</div>
+    <div class="cad-verb">${c.verb}</div>
+    <div class="cad-desc">${c.desc}</div>
+  </div>`;
+});
+
+// ---- Matrix
+const ARTEFACTS = [
+  {n:'Business Capability Maps', vals:['','','o','X','o']},
+  {n:'Technology Landscape Maps', vals:['','X','','','']},
+  {n:'Asset Portfolios', vals:['','','X','o','']},
+  {n:'Asset Roadmaps', vals:['','','o','X','']},
+  {n:'Asset Health Assessments', vals:['X','o','','','']},
+  {n:'Architecture Principles', vals:['','','','o','X']},
+  {n:'Architecture Patterns', vals:['','','X','','']},
+  {n:'Architecture Governance', vals:['X','o','','X','']},
+  {n:'Architecture Assessments', vals:['','X','','','']},
+  {n:'Strategy Transformations', vals:['','','','X','X']},
+  {n:'Strategy White Papers', vals:['','','','','X']},
+  {n:'Enterprise Architecture Blueprint', vals:['','','','o','X']},
+];
+const matEl = document.getElementById('matrixTable');
+let thead = '<tr><th>#</th><th>Artefact</th>' + CAD.map(c=>`<th>${c.name}</th>`).join('') + '</tr>';
+let rows = ARTEFACTS.map((a,i)=>{
+  let cells = a.vals.map((v,ci)=>{
+    if(v==='X') return `<td><div class="pip" style="background:${CAD[ci].hex}"></div></td>`;
+    if(v==='o') return `<td><div class="pip" style="background:${CAD[ci].hex}; opacity:0.28"></div></td>`;
+    return `<td></td>`;
+  }).join('');
+  return `<tr><td class="num">${String(i+1).padStart(2,'0')}</td><td class="label">${a.n}</td>${cells}</tr>`;
+}).join('');
+matEl.innerHTML = thead + rows;
+
+// ---- Agents
+const AGENTS = [
+  {i:'OR', name:'Orchestrator Agent', fn:'Sequences the five loops, routes outputs, manages escalation between cadences.', hex:'#5FA8CC', orch:true},
+  {i:'HE', name:'Health Agent', fn:'Continuous asset telemetry — EOL/EOS, vulnerability, performance.', hex:'#7FB3C2'},
+  {i:'GT', name:'Gate Agent', fn:'Policy-as-code enforcement; maintains the exception register.', hex:'#7FB3C2'},
+  {i:'LS', name:'Landscape Agent', fn:'Infra and integration discovery; flags drift from the known map.', hex:'#6FBF8B'},
+  {i:'AS', name:'Assessment Agent', fn:'Structured, scored design reviews against principles and patterns.', hex:'#6FBF8B'},
+  {i:'PF', name:'Portfolio Agent', fn:'TIME analysis — Tolerate, Invest, Migrate, Eliminate.', hex:'#E3A253'},
+  {i:'RM', name:'Roadmap Agent', fn:'Re-baselines delivery roadmaps against actual progress.', hex:'#E3A253'},
+  {i:'PT', name:'Pattern Agent', fn:'Mines delivered solutions for reusable patterns; retires stale ones.', hex:'#E3A253'},
+  {i:'CP', name:'Capability Agent', fn:'Maintains the capability heat-map against strategic priority.', hex:'#E08585'},
+  {i:'PR', name:'Principles Agent', fn:'Flags principle drift from repeated exceptions; drives refresh.', hex:'#E08585'},
+  {i:'TR', name:'Transformation Agent', fn:'Tracks multi-quarter programmes against milestones and benefits.', hex:'#E08585'},
+  {i:'BP', name:'Blueprint Agent', fn:'Annual synthesis of capability, landscape, portfolio and principles.', hex:'#A8A17B'},
+  {i:'NA', name:'Narrative Agent', fn:'Drafts white papers from transformation data and market scan.', hex:'#A8A17B'},
+];
+const agentGrid = document.getElementById('agentGrid');
+AGENTS.forEach(a=>{
+  agentGrid.innerHTML += `<div class="agent-card ${a.orch?'agent-orch':''}">
+    <div class="agent-glyph" style="background:${a.hex}">${a.i}</div>
+    <div class="agent-name">${a.name}</div>
+    <div class="agent-fn">${a.fn}</div>
+  </div>`;
+});
+
+// ---- Stakeholder ladder
+const LADDER = [
+  {role:'Solution Architects', cad:'DAILY / WEEKLY', color:'#7FB3C2', desc:'Chat-based interaction with the Gate and Assessment Agents — "why did this design fail?" answered with cited policy and pattern reference.'},
+  {role:'Engineering Managers', cad:'DAILY / WEEKLY', color:'#7FB3C2', desc:'Health and drift digests; escalation alerts on critical asset degradation.'},
+  {role:'Product Owners', cad:'MONTHLY', color:'#E3A253', desc:'Portfolio and roadmap pack — approve TIME recommendations, not just view them.'},
+  {role:'Heads Of', cad:'MONTHLY / QUARTERLY', color:'#E3A253', desc:'Portfolio health and capability heat-map for investment sign-off.'},
+  {role:'General Managers', cad:'QUARTERLY', color:'#E08585', desc:'Board pack and risk committee view — formal, agent-prepared, human-approved.'},
+  {role:'CxO Stakeholders', cad:'QUARTERLY / YEARLY', color:'#A8A17B', desc:'Blueprint, white papers and transformation options — with pros, cons and provenance, never bare conclusions.'},
+  {role:'External Consultants', cad:'ON-DEMAND', color:'#B7BEC2', desc:'Scoped read access to the governance register, assessments and principles — full audit trail, no write access.'},
+  {role:'Auditors', cad:'ON-DEMAND', color:'#B7BEC2', desc:'Immutable log of every gate decision, exception and override, with rationale attached — not just the outcome.'},
+];
+const ladderEl = document.getElementById('ladder');
+LADDER.forEach(l=>{
+  ladderEl.innerHTML += `<div class="ladder-row">
+    <div class="ladder-role">${l.role}</div>
+    <div class="ladder-cad" style="background:${l.color}22; color:${l.color}; border:1px solid ${l.color}55;">${l.cad}</div>
+    <div class="ladder-desc">${l.desc}</div>
+  </div>`;
+});
+
+// ---- Orbit SVG (rings: yearly outer -> daily inner)
+const svg = document.getElementById('orbitSvg');
+const cx=260, cy=260;
+const ringsOuterToInner = [
+  {r:230, key:'yearly'}, {r:184, key:'quarterly'}, {r:138, key:'monthly'}, {r:96, key:'weekly'}, {r:56, key:'daily'}
+];
+let svgContent = '';
+// rings
+ringsOuterToInner.forEach(ring=>{
+  const c = CAD.find(c=>c.key===ring.key);
+  svgContent += `<circle cx="${cx}" cy="${cy}" r="${ring.r}" fill="none" stroke="${c.hex}" stroke-opacity="0.28" stroke-width="1.2" stroke-dasharray="2 4"/>`;
+});
+// ring labels (top of each ring)
+ringsOuterToInner.forEach(ring=>{
+  const c = CAD.find(c=>c.key===ring.key);
+  svgContent += `<text x="${cx}" y="${cy-ring.r-6}" text-anchor="middle" class="ring-label" fill="${c.hex}">${c.name.toUpperCase()}</text>`;
+});
+// nodes per ring: artefact short codes placed at angles
+const ringNodes = {
+  yearly: ['Blueprint','White Papers','Transformation'],
+  quarterly: ['Governance Bd','Principles Rvw','Capability Refresh'],
+  monthly: ['Portfolio TIME','Roadmap','Patterns'],
+  weekly: ['Landscape','Assessments'],
+  daily: ['Health','Gates'],
+};
+ringsOuterToInner.forEach(ring=>{
+  const c = CAD.find(c=>c.key===ring.key);
+  const items = ringNodes[ring.key];
+  const n = items.length;
+  items.forEach((label,i)=>{
+    // spread nodes around the lower arc so labels don't collide with ring-name at top
+    const angle = (Math.PI*0.15) + (i/(n-1||1)) * (Math.PI*0.95);
+    const x = cx + ring.r*Math.sin(angle);
+    const y = cy - ring.r*Math.cos(angle);
+    svgContent += `<g class="node">
+      <circle cx="${x}" cy="${y}" r="5.5" fill="${c.hex}"/>
+    </g>`;
+  });
+});
+// core
+svgContent += `<circle cx="${cx}" cy="${cy}" r="34" fill="#2C3234" stroke="#5FA8CC" stroke-width="1"/>`;
+svgContent += `<text x="${cx}" y="${cy-4}" text-anchor="middle" class="core-label">EA</text>`;
+svgContent += `<text x="${cx}" y="${cy+11}" text-anchor="middle" class="core-sub">MESH</text>`;
+svg.innerHTML = svgContent;
+</script>
+
+</body>
+</html>

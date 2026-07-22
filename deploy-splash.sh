@@ -1,10 +1,66 @@
+#!/usr/bin/env bash
+#
+# deploy-splash.sh — front a subdomain repo with its Assure module launch banner.
+# Same moves as the main getamazednow.ai repo:
+#   1. park the existing index.html as site-wip.html (redirect to / + noindex)
+#   2. write the branded banner as index.html  (Assure <Module>, module italic)
+#   3. lock down crawling (robots.txt = Disallow: /)
+#   4. stage + commit  (you review, then push)
+#
+# USAGE — copy this file into a subdomain repo root, then run with the module:
+#   bash deploy-splash.sh Observe     # in the observability repo
+#   bash deploy-splash.sh Govern      # in the adsra repo
+#   bash deploy-splash.sh Architect   # in the mesh repo
+#   bash deploy-splash.sh Skills      # in the skills repo
+
+set -euo pipefail
+cd "$(dirname "$0")"
+
+MODULE="${1:-}"
+case "$MODULE" in
+  Observe)
+    LEAD="A reference dashboard for observing agentic GenAI in production — cost, reliability, security and responsible-AI risk correlated by trace across seven Datadog views." ;;
+  Govern)
+    LEAD="The governance plane, built on the Australian Digital Sovereignty Reference Architecture (ADSRA) — seven sovereignty pillars, a six-level maturity model and measurable KRIs a Risk Committee can govern." ;;
+  Architect)
+    LEAD="A multi-cadence EA agent mesh that runs enterprise architecture as a continuously operating practice — five clock speeds, twelve living artefacts, thirteen agents, one orchestrator." ;;
+  Skills)
+    LEAD="A library of Claude skills — capability mapping, brand automation and more — packaged as an installable plugin marketplace for Cowork and Claude Code. The build layer beneath the Observe, Govern and Architect planes." ;;
+  *)
+    echo "Usage: bash deploy-splash.sh {Observe|Govern|Architect|Skills}"; exit 1 ;;
+esac
+TAGLINE="See it. Prove it. Stand behind it."
+MODULE_UC="$(printf '%s' "$MODULE" | tr '[:lower:]' '[:upper:]')"
+
+if [ ! -f index.html ]; then
+  echo "No index.html here — run this from the subdomain repo root."; exit 1
+fi
+if grep -q 'class="product"' index.html 2>/dev/null; then
+  echo "index.html already looks like a banner — aborting to avoid double-parking."; exit 1
+fi
+
+# 1 ─ Park the existing site as site-wip.html with a redirect + noindex ────────
+mv index.html site-wip.html
+cat > .gan-redirect.html <<'REDIR'
+  <!-- WORK IN PROGRESS — not for public serving. Redirects to the front door.
+       To preview locally, comment out the meta refresh + redirect script below. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta http-equiv="refresh" content="0; url=/" />
+  <script>if(location.hostname!=="localhost"&&location.hostname!=="127.0.0.1"){location.replace("/");}</script>
+REDIR
+sed "/<head/r .gan-redirect.html" site-wip.html > site-wip.tmp
+mv site-wip.tmp site-wip.html
+rm -f .gan-redirect.html
+
+# 2 ─ Write the branded banner as the new index.html ──────────────────────────
+cat > index.html <<HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Assure Architect — Launching soon · Getamazednow AI</title>
-<meta name="description" content="Assure Architect — See it. Prove it. Stand behind it. Launching soon." />
+<title>Assure ${MODULE} — Launching soon · Getamazednow AI</title>
+<meta name="description" content="Assure ${MODULE} — ${TAGLINE} Launching soon." />
 <meta name="robots" content="noindex, nofollow" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -82,16 +138,28 @@ footer em{font-style:italic}
   </section>
   <section class="right">
     <div class="byline">A GETAMAZEDNOW COMPANY</div>
-    <h1 class="product"><span class="fam">Assure</span> <em class="mod">Architect</em></h1>
-    <div class="tagline">See it. Prove it. Stand behind it.</div>
+    <h1 class="product"><span class="fam">Assure</span> <em class="mod">${MODULE}</em></h1>
+    <div class="tagline">${TAGLINE}</div>
     <div class="rule" aria-hidden="true"></div>
-    <p class="lead">A multi-cadence EA agent mesh that runs enterprise architecture as a continuously operating practice — five clock speeds, twelve living artefacts, thirteen agents, one orchestrator.</p>
+    <p class="lead">${LEAD}</p>
     <div class="cta">
-      <a class="btn btn-sig" href="mailto:support@getamazednow.com?subject=Register%20interest%20%E2%80%94%20Assure%20Architect">Register interest &rarr;</a>
+      <a class="btn btn-sig" href="mailto:support@getamazednow.com?subject=Register%20interest%20%E2%80%94%20Assure%20${MODULE}">Register interest &rarr;</a>
       <span class="pill">LAUNCHING SOON</span>
     </div>
   </section>
 </div></main>
-<footer><span class="sig">ASSURE <em>ARCHITECT</em></span> · A GETAMAZEDNOW COMPANY</footer>
+<footer><span class="sig">ASSURE <em>${MODULE_UC}</em></span> · A GETAMAZEDNOW COMPANY</footer>
 </body>
 </html>
+HTML
+
+# 3 ─ Lock down crawling ──────────────────────────────────────────────────────
+printf 'User-agent: *\nDisallow: /\n' > robots.txt
+
+# 4 ─ Stage + commit (you review, then push) ──────────────────────────────────
+git add -A
+git commit -m "Launch banner for Assure ${MODULE}; park previous site, lock down crawling"
+
+echo ""
+echo "Done — Assure ${MODULE}. Review the diff, then push with:"
+echo "    git push origin main"
